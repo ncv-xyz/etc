@@ -1,0 +1,24 @@
+--- a/.config/nvim/init.vim
++++ b/.config/nvim/init.vim
+@@ -15,6 +15,7 @@ Plug 'tpope/vim-surround'
+ Plug 'preservim/nerdtree'
+ Plug 'junegunn/goyo.vim'
+ Plug 'jreybert/vimagit'
++Plug 'lukesmithxyz/vimling'
+ Plug 'vimwiki/vimwiki'
+ Plug 'vim-airline/vim-airline'
+ Plug 'tpope/vim-commentary'
+@@ -66,6 +67,13 @@ set notermguicolors
+ 	let g:airline_symbols.maxlinenr = ' '
+ 	let g:airline#extensions#whitespace#symbol = '!'
+
++" vimling:
++	nm <leader>d :call ToggleDeadKeys()<CR>
++	imap <leader>d <esc>:call ToggleDeadKeys()<CR>a
++	nm <leader>i :call ToggleIPA()<CR>
++	imap <leader>i <esc>:call ToggleIPA()<CR>a
++	nm <leader>q :call ToggleProse()<CR>
++
+ " Shortcutting split navigation, saving a keypress:
+ 	map <C-h> <C-w>h
+ 	map <C-j> <C-w>j

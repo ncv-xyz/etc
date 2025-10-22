@@ -1,0 +1,25 @@
+# Append to ~/.config/shell/aliasrc
+
+# Tor
+if [ "$all_proxy" = 'socks5h://localhost:9050' ]; then
+	unproxify() {
+		unset all_proxy http_proxy https_proxy ; "$@"
+		export all_proxy="socks5h://localhost:9050"
+		export http_proxy="$all_proxy"
+		export https_proxy="$all_proxy"
+		}
+	# Unroute these commands through the proxy.
+	for command in td-toggle torwrap transadd torsocks ; do
+		alias $command="unproxify $command"
+	done; unset command
+	# Route these commands through torsocks.
+	for command in lynx neomutt ; do
+		alias $command="unproxify torsocks $command"
+	done; unset command
+fi
+
+# I2Pd
+if [ "$all_proxy" = 'http://localhost:4447' ]; then
+	# Run I2Pd with system conf.
+	alias i2pd="i2pd --service --conf=$PREFIX/etc/i2pd/i2pd.conf"
+fi
