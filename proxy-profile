@@ -2,7 +2,7 @@
 
 # Set network proxy.
 #export all_proxy="socks5h://localhost:9050" # Tor
-#export all_proxy="http://localhost:4447" # I2Pd
+#export all_proxy="socks5h://localhost:4447" # I2Pd
 export http_proxy="$all_proxy"
 export https_proxy="$all_proxy"
 export no_proxy="localhost, 127.0.0.1"
